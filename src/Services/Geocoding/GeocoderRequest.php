@@ -41,6 +41,9 @@ class GeocoderRequest
     /** @var boolean */
     protected $sensor;
 
+    /** @var  string|array */
+    protected $components;
+
     /**
      * Creates a geocoder request.
      */
@@ -324,5 +327,51 @@ class GeocoderRequest
     public function isValid()
     {
         return $this->hasAddress() || $this->hasCoordinate();
+    }
+
+    public function setComponents($components)
+    {
+//        if (!$this->checkSetComponents($components)) {
+        // Exception
+//        }
+        $this->components = $components;
+    }
+
+    /**
+     * @return array|string
+     */
+    public function getComponents()
+    {
+        return $this->components;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasComponents()
+    {
+        return $this->components !== null;
+    }
+
+    private function checkSetComponents($components)
+    {
+        if (is_string($components)) {
+            $componentsAsArray = explode('|', $components);
+
+            return $this->checkComponentsAsArray($components);
+        }
+
+        if (is_array($components)) {
+            return $this->checkComponentsAsArray($components);
+        }
+
+        return false;
+    }
+
+    private function checkComponentsAsArray($components)
+    {
+        foreach ($components as $component) {
+
+        }
     }
 }

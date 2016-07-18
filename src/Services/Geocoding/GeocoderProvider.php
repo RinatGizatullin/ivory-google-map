@@ -281,6 +281,10 @@ class GeocoderProvider extends AbstractProvider implements ProviderInterface
             $httpQuery['language'] = $geocoderRequest->getLanguage();
         }
 
+        if ($geocoderRequest->hasComponents()) {
+            $httpQuery['components'] = $geocoderRequest->getComponents();
+        }
+
         $httpQuery['sensor'] = $geocoderRequest->hasSensor() ? 'true' : 'false';
 
         $url = sprintf('%s/%s?%s', $this->getUrl(), $this->getFormat(), http_build_query($httpQuery));
