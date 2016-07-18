@@ -28,5 +28,10 @@
     },
     "config": {
         "bin-dir": "bin/"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-add_components_in_geocoding": "1.4-dev"
+        }
     }
 }
