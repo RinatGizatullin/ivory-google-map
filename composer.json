@@ -24,7 +24,7 @@
         "willdurand/geocoder": "Allows to use geocoding service"
     },
     "autoload": {
-        "psr-4": { "Ivory\\GoogleMap\\": "src/" }
+        "psr-4": { "RinatGizatullin\\GoogleMap\\": "src/" }
     },
     "config": {
         "bin-dir": "bin/"
